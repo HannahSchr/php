@@ -4,9 +4,6 @@
 <head>
     <title>Taschenrechner</title>
     <style type="text/css">
-        body{
-            color: lightcyan;
-        }
         p {
             text-align: center;
         }
@@ -33,12 +30,13 @@
     </p>
 
     <p>
-    <input type="text" id="display" value="">
+        <input type="text" id="display" value="">
     </p>
     <p>
         <button type="button" id="btn1">1</button>
         <button type="button" id="btn2">2</button>
         <button type="button" id="btn3">3</button>
+        <button type="button" id="btnPlus">+</button>
     </p>
     <p>
         <button type="button" id="btn4">4</button>
@@ -54,33 +52,50 @@
 
 
     <script>
-        $input = ''
+        $number1 = ''
+        $number2 = ''
+        $rechenzeichen = ''
+
         // JavaScript-Code, um auf den Button-Klick zu reagieren
         document.getElementById('btn1').addEventListener('click', function() {
             // Hier kannst du JavaScript-Code einfügen, der auf den Button-Klick reagiert
             // Zum Beispiel: Eine Funktion aufrufen oder Daten an den Server senden
-            $input += '1';
+            setNumber("1")
             // Den Wert des Felds ändern
-            document.getElementById('display').value = $input;
+            // document.getElementById('display').value = $number1;
         });
         document.getElementById('btn2').addEventListener('click', function() {
-            $input += '2';
-            document.getElementById('display').value = $input;
+            setNumber("2")
+            // document.getElementById('display').value = $number1;
         });
         document.getElementById('btn3').addEventListener('click', function() {
-            $input += '3';
-            document.getElementById('display').value = $input;
+            setNumber("3")
+            // document.getElementById('display').value = $number1;
         });
         document.getElementById('btn4').addEventListener('click', function() {
-            $input += '4';
-            document.getElementById('display').value = $input;
+            setNumber("4")
+            // document.getElementById('display').value = $number1;
         });
         document.getElementById('btn5').addEventListener('click', function() {
-            $input += '5';
-            document.getElementById('display').value = $input;
+            setNumber("5")
+            // document.getElementById('display').value = $number1;
         });
 
-        
+
+        document.getElementById('btnPlus').addEventListener('click', function() {
+            $rechenzeichen = ' + ';
+            document.getElementById('display').value = $number1 + $rechenzeichen;
+        });
+
+        function setNumber($number) {
+            if ($rechenzeichen == '') {
+                $number1 += $number
+            }
+            else{
+                $number2 += $number
+            }
+            document.getElementById('display').value = $number1 + $rechenzeichen + $number2;
+        }
     </script>
 </body>
 
